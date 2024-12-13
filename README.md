@@ -15,15 +15,15 @@ This project implements an in-memory key-value database in C++, supporting trans
 2. Compile the code:
    ```g++ -o InMemoryDB InMemoryDB.cpp```
 
-# Linux/macOS: Ensure GCC is installed. Use the command:
+### Linux/macOS: Ensure GCC is installed. Use the command:
 ``g++ --version``
 If GCC is not installed, use:
 
 ``sudo apt-get install g++``        
-# For Ubuntu/Debian
+### For Ubuntu/Debian
 ``brew install gcc``
 
-# For macOS with Homebrew
+### For macOS with Homebrew
 Windows: Install MinGW or use the Windows Subsystem for Linux (WSL).
 Clone the repository:
 
