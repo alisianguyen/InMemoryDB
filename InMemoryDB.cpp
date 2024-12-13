@@ -58,36 +58,3 @@ public:
     }
 };
 
-int main() {
-    InMemoryDB inmemoryDB;
-
-    // Test cases based on provided example
-    try {
-        std::cout << (inmemoryDB.get("A").has_value() ? std::to_string(inmemoryDB.get("A").value()) : "null") << std::endl; // should return null
-
-        inmemoryDB.put("A", 5); // should throw an error
-    } catch (const std::exception &e) {
-        std::cout << e.what() << std::endl;
-    }
-
-    inmemoryDB.begin_transaction(); // starts a transaction
-    inmemoryDB.put("A", 5);
-    std::cout << (inmemoryDB.get("A").has_value() ? std::to_string(inmemoryDB.get("A").value()) : "null") << std::endl; // should return null
-
-    inmemoryDB.put("A", 6);
-    inmemoryDB.commit(); // commit the transaction
-    std::cout << (inmemoryDB.get("A").has_value() ? std::to_string(inmemoryDB.get("A").value()) : "null") << std::endl; // should return 6
-
-    try {
-        inmemoryDB.commit(); // should throw an error
-    } catch (const std::exception &e) {
-        std::cout << e.what() << std::endl;
-    }
-
-    try {
-        inmemoryDB.rollback(); // should throw an error
-    } catch (const std::exception &e) {
-        std::cout << e.what() << std::endl;
-    }
-
-    std::cout <<
